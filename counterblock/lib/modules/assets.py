@@ -575,7 +575,7 @@ def parse_issuance(msg, msg_data):
                 'owner': msg_data['issuer'],
                 'description': msg_data['description'],
                 'divisible': msg_data['divisible'],
-                'listed': msg_data['listed'],
+                'listed': msg_data['listed'] if 'listed' in msg_data else True,
                 'locked': False,
                 'total_issued': int(msg_data['quantity']),
                 'total_issued_normalized': blockchain.normalize_quantity(msg_data['quantity'], msg_data['divisible']),
